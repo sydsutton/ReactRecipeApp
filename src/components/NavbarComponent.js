@@ -26,7 +26,7 @@ class NavbarComponent extends Component {
         return (
                 <Navbar className="navbar-expand-md navbar-light bg-light sticky-top mb-5">
                     <div className="container">
-                        <NavbarBrand href="/"><h2>CIY</h2></NavbarBrand>
+                        <NavbarBrand href="/"><h2>CiY</h2></NavbarBrand>
                         <NavbarToggler onClick={this.toggleNav}/>
                         <Collapse isOpen={this.state.isNavOpen} navbar className="text-right">
                             <Nav navbar className="ml-auto">

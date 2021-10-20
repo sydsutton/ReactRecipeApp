@@ -2,6 +2,7 @@ const DATA = [
     {
         id: 1,
         name: "Crock Pot Roast",
+        updated: "March 3rd, 2021",
         ingredients: [
             {
                 quantity: "1",
@@ -47,6 +48,7 @@ const DATA = [
     {
         id: 2,
         name: "Roasted Asparagus",
+        updated: "July 14th, 2021",
         ingredients: [
             {
                 quantity: "1 lb",
@@ -94,6 +96,7 @@ const DATA = [
     {
         id: 3,
         name: "Curried Lentils and Rice",
+        updated: "August 23rd, 2021",
         ingredients: [
             {
                 quantity: "1 quart",
@@ -140,6 +143,7 @@ const DATA = [
     {
         id: 4,
         name: "Big Night Pizza",
+        updated: "June 12th, 2021",
         ingredients: [
             {
                 quantity: "5 teaspoons",
@@ -205,6 +209,7 @@ const DATA = [
     {
         id: 5,
         name: "Cranberry and Apple Stuffed Acorn Squash Recipe",
+        updated: "June 19th, 2021",
         ingredients: [
             {
                 quantity: "2",
@@ -263,6 +268,7 @@ const DATA = [
     {
         id: 6,
         name: "Mic's Yorkshire Puds",
+        updated: "October 2nd, 2021",
         ingredients: [
             {
                 quantity: "200g",
@@ -313,6 +319,7 @@ const DATA = [
     {
         id: 7,
         name: "Old-Fashioned Oatmeal Cookies",
+        updated: "April 28th, 2021",
         ingredients: [
             {
                 quantity: "1 cup",
@@ -405,6 +412,7 @@ const DATA = [
     {
         id: 8,
         name: "Blueberry Oatmeal Squares",
+        updated: "July 7th, 2021",
         ingredients: [
             {
                 quantity: "2-1/2 cups",
@@ -483,6 +491,7 @@ const DATA = [
     {
         id: 9,
         name: "Curried chicken salad",
+        updated: "October 3rd, 2021",
         ingredients: [
             {
                 quantity: "3",

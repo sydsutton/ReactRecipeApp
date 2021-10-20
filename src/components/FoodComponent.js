@@ -35,10 +35,14 @@ const RenderSteps = ({steps}) => {
 
 const FoodComponent = (props) => {
     return (
-        <div className="container position-relative faded-background p-3 rounded text-light">
+        <div className="container position-relative faded-background p-4 rounded text-light">
+            <div className="row mx-auto text-center my-auto justify-content-between">
+                <button className="btn btn-outline-light mb-4" onClick={window.print}>Print Recipe</button>
+                <p><span className="small font-bold">Updated:</span> {props.foodInfo.updated}</p>
+            </div>
             <div className="row">
                 <img className="col-md-5 rendered-food" src={props.foodInfo.imageURL} alt={props.foodInfo.name} style={{width: "30rem"}}/>
-                <div className="col-md-5">
+                <div className="col-md-5 mt-3">
                     <h5>Ingredients</h5>
                     <hr className="w-50"/>
                     <div className="d-flex justify-content-center">

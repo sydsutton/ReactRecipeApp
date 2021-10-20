@@ -30,7 +30,7 @@ class MainComponent extends Component {
                         <Card className=" m-2 faded-background rounded-circle shadow">
                             <CardImg className="rounded-circle food-image mx-auto" src={food.imageURL} alt={food.name}/>
                             <CardImgOverlay>
-                                <CardTitle className="bg-light w-100 text-dark rounded shadow">{food.name}</CardTitle>
+                                <CardTitle className="bg-light w-100 text-dark rounded shadow"><h5>{food.name}</h5></CardTitle>
                             </CardImgOverlay>
                         </Card>
                     </Link>
@@ -41,8 +41,8 @@ class MainComponent extends Component {
                 <div>
                     <Jumbotron className="jumbotron mt-n5 position-relative"/>
                     <div className="position-absolute text-dark bg-light py-4 w-100 shadow-sm" style={{top: "20%"}}>
-                        <h4>Cook It Yourself!</h4>
-                        <p>Based on recipes that we actually use in our own world-class restaurants, <br/>give your family a taste of what it's like to go out to a five-star restaurant without having to leave your own home!</p>
+                        <h3>Cook it Yourself!</h3>
+                        <p className="small">Based on recipes that we actually use in our own world-class restaurants, <br/>give your family a taste of what it's like to go out to a five-star restaurant without having to leave your own home!<br/>Choose from any of the ever-changing recipes below. Leave suggestions, reviews,<br/>and share your stories on our social media!</p>
                     </div>
                     <div className="container">
                         <div className="row">

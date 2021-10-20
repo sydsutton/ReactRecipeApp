@@ -10,6 +10,11 @@ body {
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
+  font-family: "Baloo Thambi 2"
+}
+
+h1, h2, h3, h4, h5 {
+  font-family: "Satisfy", 'cursive';
 }
 
 .food-image {
@@ -37,7 +42,7 @@ body {
 
 .scale:hover {
   transform: scale(1.03);
-  -webkit-transition: .15s ease-in-out;
+  transition: .15s ease-in-out;
 }
 
 .cover {
