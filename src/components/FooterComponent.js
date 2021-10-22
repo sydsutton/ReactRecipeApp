@@ -13,7 +13,7 @@ const FooterComponent = () => {
                         </ul>
                     </div>
                     <div className="col-sm-8">
-                        <h5>Follow Us On</h5>
+                        <h4>Follow us</h4>
                         <a className="btn btn-social-icon btn-instagram" href="instagram.com"><i className="fas fa-instagram"></i></a>
                     </div>
                 </div>

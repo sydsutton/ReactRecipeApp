@@ -37,7 +37,7 @@ class NavbarComponent extends Component {
                                     <NavLink to="/team" className="text-dark">Our Team</NavLink>
                                 </NavItem>
                                 <NavItem className="m-1 mx-2">
-                                    <NavLink to="/" className="text-dark">Contact Us</NavLink>
+                                    <NavLink to="/contact" className="text-dark">Contact Us</NavLink>
                                 </NavItem>
                             </Nav>
                         </Collapse>

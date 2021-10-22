@@ -4,6 +4,7 @@ import CONTACTS from "../CONTACTS"
 import Navbar from "./NavbarComponent"
 import Footer from "./FooterComponent"
 import Team from "./TeamComponent"
+import Contact from "./ContactComponent"
 import FoodComponent from "./FoodComponent"
 import {
     Card, 
@@ -41,7 +42,7 @@ class MainComponent extends Component {
                 <div>
                     <Jumbotron className="jumbotron mt-n5 position-relative"/>
                     <div className="position-absolute text-dark bg-light py-4 w-100 shadow-sm" style={{top: "20%"}}>
-                        <h3>Cook it Yourself!</h3>
+                        <h3 className="pt-1">Cook it Yourself!</h3>
                         <p className="small">Based on recipes that we actually use in our own world-class restaurants, <br/>give your family a taste of what it's like to go out to a five-star restaurant without having to leave your own home!<br/>Choose from any of the ever-changing recipes below. Leave suggestions, reviews,<br/>and share your stories on our social media!</p>
                     </div>
                     <div className="container">
@@ -66,6 +67,7 @@ class MainComponent extends Component {
                     <Route exact path="/menu" component={HomePage} />
                     <Route path="/recipe/:foodId" component={FoodItem} />
                     <Route path="/team" render={() => <Team teamInfo={this.state.contacts}/>}/>
+                    <Route exact path="/contact" component={Contact}/>
                     <Redirect to="/menu"/>
                 </Switch>
                 <Footer />

@@ -35,7 +35,8 @@ const CONTACTS = [
         img: "https://michellewalker.com/wp-content/uploads/2014/05/rchalfm_00308_820x435.jpg"
 	},
 	{
-		description: "Our team is dedicated to giving you amazing recipes for you to make at home. We started from small beginnings in our Head Chef's kitchen with only one employee-- his mom. Now, we have a beautiful kitchen in downtown New York with over 20 employees, and we can't wait to share our success with you."
+		description: "Our team is dedicated to giving you amazing recipes for you to make at home. We started from small beginnings in our Head Chef's kitchen with only one employee-- his mom. Now, we have a beautiful kitchen in downtown New York with over 20 employees, and we can't wait to share our success with you.",
+		descriptionImg: "https://www.metroparkstacoma.org/wp-content/uploads/2020/12/woman-chef-cooking-vegetables-pan.jpg"
 	}
 ]
 
