@@ -4,7 +4,9 @@ const RenderIngredients = ({ingredients}) => {
             <div>
                 {ingredients.map(ingredient => {
                     return (
-                        <li>{ingredient.quantity} of {ingredient.name}</li>
+                        <div>
+                            <input type="checkbox" className="mx-2"/>{ingredient.quantity} | {ingredient.name}
+                        </div>
                     )
                 })}
             </div>
@@ -23,7 +25,7 @@ const RenderSteps = ({steps}) => {
             <div>
                 {steps.map(step => {
                     return (
-                        <p>{step}</p>
+                        <li>{step}</li>
                     )
                 })}
             </div>
@@ -41,20 +43,18 @@ const FoodComponent = (props) => {
                 <p><span className="small font-bold">Updated:</span> {props.foodInfo.updated}</p>
             </div>
             <div className="row">
-                <img className="col-md-5 rendered-food" src={props.foodInfo.imageURL} alt={props.foodInfo.name} style={{width: "30rem"}}/>
-                <div className="col-md-5 mt-3">
+                <img className="col-md-5 rendered-food mx-auto mb-4" src={props.foodInfo.imageURL} alt={props.foodInfo.name} style={{width: "30rem"}}/>
+                <div className="col-md-5">
                     <h5>Ingredients</h5>
-                    <hr className="w-50"/>
-                    <div className="d-flex justify-content-center">
-                        <div className="text-left mx-auto">
-                            <ul className="list-unstyled">
-                                <RenderIngredients ingredients={props.foodInfo.ingredients} />
-                            </ul>
-                            <h5 className="text-center">Directions</h5>
-                            <hr className="w-50"/>
-                            <RenderSteps steps={props.foodInfo.steps} />        
-                        </div>
-                    </div>
+                    <hr className="bg-light"/>
+                    <ul className="list-unstyled text-left">
+                        <RenderIngredients ingredients={props.foodInfo.ingredients} />
+                    </ul>
+                    <h5 className="text-center mt-5">Directions</h5>
+                    <hr className="bg-light"/>
+                    <ul className="list-unstyled text-left">
+                        <RenderSteps steps={props.foodInfo.steps} />    
+                    </ul>    
                 </div>
             </div>
         </div>

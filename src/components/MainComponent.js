@@ -19,7 +19,7 @@ class MainComponent extends Component {
         super()
         this.state = {
             data: DATA,
-            contacts: CONTACTS
+            contacts: CONTACTS,
         }
     }
 
