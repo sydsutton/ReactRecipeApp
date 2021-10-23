@@ -42,7 +42,7 @@ class MainComponent extends Component {
                 <div>
                     <Jumbotron className="jumbotron mt-n5 position-relative"/>
                     <div className="position-absolute text-dark bg-warning w-100 shadow-sm mt-5" style={{top: "20%"}}>
-                        <h2 className="pt-1 text-dark bg-light mt-2 shadow-sm">Cook it Yourself!</h2>
+                        <h1 className="pt-1 text-dark bg-light mt-2 shadow-sm">Cook it Yourself!</h1>
                         <p className="small bg-light py-1 mt-n1 mb-2 shadow-sm">Based on recipes that we actually use in our own world-class restaurants, <br/>give your family a taste of what it's like to go out to a five-star restaurant without having to leave your own home!<br/>Choose from any of the ever-changing recipes below. Leave suggestions, reviews,<br/>and share your stories on our social media!</p>
                     </div>
                     <div className="container">

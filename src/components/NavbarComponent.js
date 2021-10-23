@@ -6,16 +6,77 @@ import {
     NavbarBrand,
     Collapse,
     Nav,
-    NavItem
+    NavItem,
+    Button,
+    Modal,
+    ModalHeader,
+    ModalBody,
+    Form, 
+    FormGroup,
+    Input, 
+    ModalTogglerIcon
 } from "reactstrap"
 
 import {NavLink} from "react-router-dom"
+
+class ModalComponent extends Component {
+    constructor(props){
+        super(props)
+        this.state = {
+            isModalOpen: false
+        }
+    }
+
+    toggleModal = () => {
+        this.setState({
+            isModalOpen: !this.state.isModalOpen
+        })
+    }
+
+    render(){
+        return (
+            <div>
+                <Button onClick={this.toggleModal} className="ml-4" color="warning">Login</Button>
+                <Modal isOpen={this.state.isModalOpen} toggle={this.toggleModal}>
+                    <ModalHeader toggle={this.toggleModal}>
+                        <h2>Login</h2>
+                    </ModalHeader>
+                    <ModalBody>
+                        <Form>
+                            <FormGroup>
+                                <Input type="text" placeholder="Username"/>
+                            </FormGroup>
+                            <FormGroup>
+                                <Input type="password" placeholder="Password"/>
+                            </FormGroup>
+                            <FormGroup className="text-center mx-auto d-flex flex-row justify-content-center">
+                                <div>
+                                    <Button type="submit" className="btn btn-sm px-3 py-2 mr-2 mx-4" color="warning">Login</Button>
+                                </div>
+                                <div>
+                                    <div className="small mb-2 text-secondary">Don't have an account?</div>
+                                    <Button type="submit" className="btn btn-sm py-2 px-4 text-center mx-4" color="light">Create an account</Button>
+                                </div>
+                            </FormGroup>
+                            <hr />
+                            <h6 className="mx-auto text-center my-3">OR</h6>
+                            <FormGroup className="d-flex flex-column w-50 mx-auto">
+                                <Button outline className="badge badge-pill px-3 py-2 mb-2" color="primary"><i className="fa fa-google-plus fa-lg mr-2"/>Sign Up with Google</Button>
+                                <Button outline className="badge badge-pill px-3 py-2" color="primary"><i className="fa fa-facebook fa-lg mr-2"/>Sign Up with Facebook</Button>
+                            </FormGroup>
+                        </Form>
+                    </ModalBody>
+                </Modal>
+            </div>
+        )
+    }
+}
 
 class NavbarComponent extends Component {
     constructor(props){
         super(props)
         this.state = {
-            isNavOpen: false
+            isNavOpen: false,
         }
     }
     toggleNav = () =>{
@@ -23,6 +84,7 @@ class NavbarComponent extends Component {
             isNavOpen: !this.state.isNavOpen
         })
     }
+
     render(){
         return (
                 <Navbar className="navbar-expand-md navbar-light bg-light sticky-top mb-5">
@@ -41,6 +103,7 @@ class NavbarComponent extends Component {
                                     <NavLink to="/contact" className="text-dark">Contact Us</NavLink>
                                 </NavItem>
                             </Nav>
+                            <ModalComponent/>
                         </Collapse>
                     </div>
                 </Navbar>
