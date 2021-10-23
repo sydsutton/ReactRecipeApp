@@ -18,16 +18,12 @@ class ContactComponent extends Component {
         }
     }
 
-    handleSubmit = (values) => {
-        alert('Current state is ' + JSON.stringify(values))
-    }
-
     render(){
         return (
             <div className="text-light">
                 <h3 className="text-warning">Contact Form</h3>
                 <p>If we don't get back to you in 24 hours... JUST WAIT LONGER</p>
-                <Form onSubmit={values => this.handleSubmit(values)} className="form w-50 mx-auto">
+                <Form className="form w-50 mx-auto">
                     <FormGroup>
                         <Input 
                             type="text" 

@@ -4,8 +4,9 @@ import {
     CardImg,
     CardText,
     CardImgOverlay,
-    CardTitle
+    CardTitle,
 } from "reactstrap"
+
 
 const RenderTeam = ({teamInfo}) => {
     return (

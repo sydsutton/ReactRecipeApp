@@ -52,9 +52,9 @@ const FoodComponent = (props) => {
                     </ul>
                     <h5 className="text-center mt-5">Directions</h5>
                     <hr className="bg-light"/>
-                    <ul className="list-unstyled text-left">
+                    <ol className="text-left">
                         <RenderSteps steps={props.foodInfo.steps} />    
-                    </ul>    
+                    </ol>    
                 </div>
             </div>
         </div>
