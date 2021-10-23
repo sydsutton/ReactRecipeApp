@@ -25,7 +25,7 @@ const RenderSteps = ({steps}) => {
             <div>
                 {steps.map(step => {
                     return (
-                        <li>{step}</li>
+                        <li className="my-2">{step}</li>
                     )
                 })}
             </div>

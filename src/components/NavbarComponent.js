@@ -1,4 +1,5 @@
 import React, {Component} from "react"
+import logo from "../images/logo.png"
 import {
     Navbar,
     NavbarToggler, 
@@ -26,17 +27,17 @@ class NavbarComponent extends Component {
         return (
                 <Navbar className="navbar-expand-md navbar-light bg-light sticky-top mb-5">
                     <div className="container">
-                        <NavbarBrand href="/"><h2>CiY</h2></NavbarBrand>
+                        <NavbarBrand href="/" className="d-flex flex-row"><img src={logo} height="50" /><h2>CiY</h2></NavbarBrand>
                         <NavbarToggler onClick={this.toggleNav}/>
                         <Collapse isOpen={this.state.isNavOpen} navbar className="text-right">
                             <Nav navbar className="ml-auto">
-                                <NavItem className="my-1 mx-2">
+                                <NavItem className="my-1 ml-4">
                                     <NavLink to="/" className="text-dark">Menu</NavLink>
                                 </NavItem>
-                                <NavItem className="m-1 mx-2">
+                                <NavItem className="m-1 ml-4">
                                     <NavLink to="/team" className="text-dark">Our Team</NavLink>
                                 </NavItem>
-                                <NavItem className="m-1 mx-2">
+                                <NavItem className="m-1 ml-4">
                                     <NavLink to="/contact" className="text-dark">Contact Us</NavLink>
                                 </NavItem>
                             </Nav>
