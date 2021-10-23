@@ -36,29 +36,39 @@ class ModalComponent extends Component {
     render(){
         return (
             <div>
-                <Button onClick={this.toggleModal} className="ml-4" color="warning">Login</Button>
-                <Modal isOpen={this.state.isModalOpen} toggle={this.toggleModal}>
+                <Button onClick={this.toggleModal} className="badge badge-pill px-4 py-2 ml-4" outline color="warning">Login</Button>
+                <Modal isOpen={this.state.isModalOpen} toggle={this.toggleModal} className="mx-auto w-75">
                     <ModalHeader toggle={this.toggleModal}>
                         <h2>Login</h2>
                     </ModalHeader>
                     <ModalBody>
                         <Form>
                             <FormGroup>
-                                <Input type="text" placeholder="Username"/>
+                                <Input 
+                                    type="text" 
+                                    placeholder="Username" 
+                                    id="username" 
+                                    name="username"
+                                />
                             </FormGroup>
                             <FormGroup>
-                                <Input type="password" placeholder="Password"/>
+                                <Input 
+                                    type="password" 
+                                    placeholder="Password" 
+                                    id="password" 
+                                    name="password"
+                                />
                             </FormGroup>
-                            <FormGroup className="text-center mx-auto d-flex flex-row justify-content-center">
+                            <FormGroup className="text-center mx-auto">
                                 <div>
-                                    <Button type="submit" className="btn btn-sm px-3 py-2 mr-2 mx-4" color="warning">Login</Button>
-                                </div>
-                                <div>
-                                    <div className="small mb-2 text-secondary">Don't have an account?</div>
-                                    <Button type="submit" className="btn btn-sm py-2 px-4 text-center mx-4" color="light">Create an account</Button>
+                                    <Button type="submit" className="badge badge-pill px-4 py-2 mr-2 mx-4" color="success">Login</Button>
                                 </div>
                             </FormGroup>
                             <hr />
+                            <FormGroup className="text-center mx-auto">
+                                <div className="small mb-2 text-secondary">Don't have an account?</div>
+                                <Button type="submit" className="badge badge-pill border py-2 px-4 text-center mx-4" color="light">Create an account</Button>
+                            </FormGroup>
                             <h6 className="mx-auto text-center my-3">OR</h6>
                             <FormGroup className="d-flex flex-column w-50 mx-auto">
                                 <Button outline className="badge badge-pill px-3 py-2 mb-2" color="primary"><i className="fa fa-google-plus fa-lg mr-2"/>Sign Up with Google</Button>

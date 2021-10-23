@@ -5,10 +5,12 @@ const FooterComponent = () => {
         <div className="footer position-absolute w-100 bg-light py-2 mt-5">
             <div className="container">
                 <div className="row">
-                    <div className="col-sm-8 mx-auto">
+                    <div className="col mx-auto">
                         <h4>Follow us</h4>
                         <a className="btn btn-social-icon btn-instagram" href="instagram.com"><i className="fa fa-instagram fa-lg"></i></a>
                         <a className="btn btn-social-icon btn-facebook" href="facebook.com"><i className="fa fa-facebook fa-lg"></i></a>
+                        <a className="btn btn-social-icon btn-linkedin" href="linkedin.com"><i className="fa fa-linkedin fa-lg"></i></a>
+                        <a className="btn btn-social-icon btn-twitter" href="twitter.com"><i className="fa fa-twitter fa-lg"></i></a>
                     </div>
                 </div>
             </div>
