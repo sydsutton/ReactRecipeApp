@@ -35,13 +35,30 @@ const RenderSteps = ({steps}) => {
     }
 }
 
+const SaveRecipe = ({name}) => {
+
+    const handleClick = () => {
+        alert(`${name} recipe saved!`)
+    }
+    return (
+        <div>
+            <button className="btn btn-sm btn-warning d-inline-block" onClick={handleClick}>Save Recipe</button>
+        </div>
+    )
+}
+
 const FoodComponent = (props) => {
     return (
         <div className="container position-relative faded-background p-4 rounded text-light">
             <div className="row mx-auto text-center my-auto justify-content-between">
-                <button className="btn btn-outline-warning  mb-4" onClick={window.print}>Print Recipe</button>
+                <div className="mb-4 d-flex flex-row">
+                    <button className="btn btn-sm btn-outline-secondary mr-4" onClick={window.print}>Print Recipe</button>
+                    <SaveRecipe name={props.foodInfo.name}/>
+                </div>
+                <h3 className="text-center mx-auto">{props.foodInfo.name}</h3>
                 <p><span className="small font-bold">Updated:</span> {props.foodInfo.updated}</p>
             </div>
+            <hr className="mt-n1 mb-4 bg-dark"/>
             <div className="row">
                 <img className="col-md-5 rendered-food mx-auto mb-4" src={props.foodInfo.imageURL} alt={props.foodInfo.name} style={{width: "30rem"}}/>
                 <div className="col-md-5">
