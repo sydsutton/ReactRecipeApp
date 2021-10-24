@@ -38,7 +38,7 @@ class ModalComponent extends Component {
                 <Button onClick={this.toggleModal} className="badge badge-pill border border-dark text-dark px-4 py-2 ml-4" outline color="warning">Login</Button>
                 <Modal isOpen={this.state.isModalOpen} toggle={this.toggleModal} className="mx-auto w-75">
                     <ModalHeader toggle={this.toggleModal}>
-                        <h2>Login</h2>
+                        <h2>Login</h2> 
                     </ModalHeader>
                     <ModalBody>
                         <Form>
@@ -60,7 +60,7 @@ class ModalComponent extends Component {
                             </FormGroup>
                             <FormGroup className="text-center mx-auto">
                                 <div>
-                                    <Button type="submit" className="badge badge-pill px-4 py-2 mr-2 mx-4" color="success">Login</Button>
+                                    <Button type="submit" className="badge badge-pill px-4 py-2 mr-2 mx-4" color="warning">Login</Button>
                                 </div>
                             </FormGroup>
                             <hr />

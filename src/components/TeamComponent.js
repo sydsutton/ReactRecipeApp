@@ -41,7 +41,7 @@ const RenderDesc = ({teamInfo}) => {
                     <Card className="bg-transparent">
                         <CardImg className="cover" src={team.descriptionImg} alt="Cooking" style={{height: "40rem"}}/>
                         <CardImgOverlay className="d-flex flex-column justify-content-center p-0">
-                            <p className="dark-background text-light py-4 rounded my-3">{team.description}</p>
+                            <p className="dark-background text-light py-4 px-3 rounded my-3">{team.description}</p>
                         </CardImgOverlay>
                     </Card> 
                 )

@@ -20,31 +20,8 @@ class MainComponent extends Component {
         super()
         this.state = {
             data: DATA,
-            contacts: CONTACTS,
-            firstName: "",
-            lastName: "",
-            email: "",
-            suggestion: "",
-            notes: ""
+            contacts: CONTACTS
         }
-    }
-
-    handleSubmit = () => {
-        alert(`
-Thank you for the following submission:
-
-First Name: ${this.state.firstName}
-Last Name: ${this.state.lastName}
-Email: ${this.state.email}
-You'd like to see more ${this.state.suggestion} on our page
-Notes: ${this.state.notes}
-            `)
-    }
-
-    handleChange = (event) => {
-        this.setState({
-            [event.target.name]: event.target.value
-        })
     }
 
     render(){
@@ -90,7 +67,7 @@ Notes: ${this.state.notes}
                     <Route exact path="/menu" component={HomePage} />
                     <Route path="/recipe/:foodId" component={FoodItem} />
                     <Route path="/team" render={() => <Team teamInfo={this.state.contacts}/>}/>
-                    <Route exact path="/contact" render={() => <Contact form={this.state} handleSubmit={this.handleSubmit} handleChange={this.handleChange} />}/>
+                    <Route exact path="/contact" component={Contact}/>
                     <Redirect to="/menu"/>
                 </Switch>
                 <Footer />
