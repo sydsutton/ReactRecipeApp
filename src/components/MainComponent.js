@@ -21,7 +21,30 @@ class MainComponent extends Component {
         this.state = {
             data: DATA,
             contacts: CONTACTS,
+            firstName: "",
+            lastName: "",
+            email: "",
+            suggestion: "",
+            notes: ""
         }
+    }
+
+    handleSubmit = () => {
+        alert(`
+Thank you for the following submission:
+
+First Name: ${this.state.firstName}
+Last Name: ${this.state.lastName}
+Email: ${this.state.email}
+You'd like to see more ${this.state.suggestion} on our page
+Notes: ${this.state.notes}
+            `)
+    }
+
+    handleChange = (event) => {
+        this.setState({
+            [event.target.name]: event.target.value
+        })
     }
 
     render(){
@@ -41,9 +64,9 @@ class MainComponent extends Component {
             return (
                 <div>
                     <Jumbotron className="jumbotron mt-n5 position-relative"/>
-                    <div className="position-absolute text-dark bg-warning w-100 shadow-sm mt-5" style={{top: "20%"}}>
-                        <h1 className="pt-1 text-dark bg-light mt-2 shadow-sm">Cook it Yourself!</h1>
-                        <p className="small bg-light py-1 mt-n1 mb-2 shadow-sm">Based on recipes that we actually use in our own world-class restaurants, <br/>give your family a taste of what it's like to go out to a five-star restaurant without having to leave your own home!<br/>Choose from any of the ever-changing recipes below. Leave suggestions, reviews,<br/>and share your stories on our social media!</p>
+                    <div className="position-absolute text-dark w-100 mt-5 bg-warning" style={{top: "20%"}}>
+                        <h1 className="pt-1 text-dark bg-light mt-2 position-relative">Cook it Yourself!</h1>
+                        <p className="small bg-light py-1 mt-n1 mb-2">Based on recipes that we actually use in our own world-class restaurants, <br/>give your family a taste of what it's like to go out to a five-star restaurant without having to leave your own home!<br/>Choose from any of the ever-changing recipes below. Leave suggestions, reviews,<br/>and share your stories on our social media!</p>
                     </div>
                     <div className="container">
                         <div className="row">
@@ -67,7 +90,7 @@ class MainComponent extends Component {
                     <Route exact path="/menu" component={HomePage} />
                     <Route path="/recipe/:foodId" component={FoodItem} />
                     <Route path="/team" render={() => <Team teamInfo={this.state.contacts}/>}/>
-                    <Route exact path="/contact" component={Contact}/>
+                    <Route exact path="/contact" render={() => <Contact form={this.state} handleSubmit={this.handleSubmit} handleChange={this.handleChange} />}/>
                     <Redirect to="/menu"/>
                 </Switch>
                 <Footer />

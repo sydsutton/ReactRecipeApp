@@ -13,8 +13,7 @@ import {
     ModalBody,
     Form, 
     FormGroup,
-    Input, 
-    ModalTogglerIcon
+    Input
 } from "reactstrap"
 
 import {NavLink} from "react-router-dom"
@@ -36,7 +35,7 @@ class ModalComponent extends Component {
     render(){
         return (
             <div>
-                <Button onClick={this.toggleModal} className="badge badge-pill px-4 py-2 ml-4" outline color="warning">Login</Button>
+                <Button onClick={this.toggleModal} className="badge badge-pill border border-dark text-dark px-4 py-2 ml-4" outline color="warning">Login</Button>
                 <Modal isOpen={this.state.isModalOpen} toggle={this.toggleModal} className="mx-auto w-75">
                     <ModalHeader toggle={this.toggleModal}>
                         <h2>Login</h2>
@@ -99,7 +98,7 @@ class NavbarComponent extends Component {
         return (
                 <Navbar className="navbar-expand-md navbar-light bg-light sticky-top mb-5">
                     <div className="container">
-                        <NavbarBrand href="/" className="d-flex flex-row"><img src={logo} height="50" /><h2>CiY</h2></NavbarBrand>
+                        <NavbarBrand href="/" className="d-flex flex-row"><img src={logo} alt="logo" height="50" /><h2>CiY</h2></NavbarBrand>
                         <NavbarToggler onClick={this.toggleNav}/>
                         <Collapse isOpen={this.state.isNavOpen} navbar className="text-right">
                             <Nav navbar className="ml-auto">

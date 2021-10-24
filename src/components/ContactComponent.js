@@ -1,75 +1,78 @@
-import React, {Component} from 'react';
 import {
     Form, 
     FormGroup,
     Input,
-    Button
+    Button,
+    TextArea
 } from "reactstrap"
 
-class ContactComponent extends Component {
-    constructor(props){
-        super(props)
-        this.state = {
-            firstName: "",
-            lastName: "",
-            email: "",
-            suggestion: "",
-            notes: ""
-        }
-    }
-
-    render(){
-        return (
-            <div className="text-light">
-                <h3 className="text-warning">Contact Form</h3>
-                <p>If we don't get back to you in 24 hours... JUST WAIT LONGER</p>
-                <Form className="form w-50 mx-auto">
-                    <FormGroup>
-                        <Input 
-                            type="text" 
-                            name="firstName" 
-                            id="firstName" 
-                            placeholder="First Name"
-                        />
-                    </FormGroup>
-                    <FormGroup>
-                        <Input 
-                            type="text" 
-                            name="lastName" 
-                            id="lastName" 
-                            placeholder="Last Name"
-                        />
-                    </FormGroup>
-                    <FormGroup>
-                        <Input 
-                            type="text" 
-                            name="lastName" 
-                            id="lastName" 
-                            placeholder="Email"
-                        />
-                    </FormGroup>
-                    <FormGroup>
-                        <select className="form-control" id="suggestion">
-                            <option>What would you like to see more of?</option>
+function ContactComponent(props){
+    return (
+        <div className="text-light">
+            <h3 className="text-warning">Contact Form</h3>
+            <p>If we don't get back to you in 24 hours... JUST WAIT LONGER</p>
+            <Form className="form w-50 mx-auto" onSubmit={props.handleSubmit}>
+                <FormGroup>
+                    <Input 
+                        type="text" 
+                        name="firstName" 
+                        id="firstName" 
+                        value={props.form.firstName}
+                        onChange={props.handleChange}
+                        placeholder="First Name"
+                    />
+                </FormGroup>
+                <FormGroup>
+                    <Input 
+                        type="text" 
+                        name="lastName" 
+                        id="lastName" 
+                        value={props.form.lastName}
+                        onChange={props.handleChange}
+                        placeholder="Last Name"
+                    />
+                </FormGroup>
+                <FormGroup>
+                    <Input 
+                        type="email" 
+                        name="email" 
+                        id="email" 
+                        value={props.form.email}
+                        onChange={props.handleChange}
+                        placeholder="Email"
+                    />
+                </FormGroup>
+                <FormGroup>
+                    <select 
+                        className="form-control" 
+                        id="suggestion"
+                        name="suggestion"
+                        onChange={props.handleChange}
+                        value={props.form.suggestion}>
+                            <option>I would like to see more...</option>
                             <option>Appetizers</option>
                             <option>Main Courses</option>
                             <option>Desserts</option>
                             <option>Snacks</option>
-                        </select>
-                    </FormGroup>
-                    <FormGroup>
-                        <Input 
-                            type="text-area" 
-                            id="notes" 
-                            placeholder="Notes" 
-                            style={{height: "10rem"}}
-                        />
-                    </FormGroup>
-                    <Button className="btn" type="submit" color="warning">Submit</Button>
-                </Form>
-            </div>
-        )
-    }
+                    </select>
+                </FormGroup>
+                <FormGroup>
+                    <textarea
+                        type="text-area" 
+                        id="notes" 
+                        rows="6"
+                        value={props.form.notes}
+                        name="notes"
+                        onChange={props.handleChange}
+                        placeholder="Notes" 
+                        style={{width: "100%"}}
+                        className="p-3"
+                    />
+                </FormGroup>
+                <Button className="btn" type="submit" color="warning">Submit</Button>
+            </Form>
+        </div>
+    )
 }
 
 export default ContactComponent;
