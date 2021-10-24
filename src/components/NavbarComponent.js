@@ -22,7 +22,11 @@ class ModalComponent extends Component {
     constructor(props){
         super(props)
         this.state = {
-            isModalOpen: false
+            isModalOpen: false,
+            username: "",
+            password: "",
+            usernameError: "",
+            passwordError: ""
         }
     }
 
@@ -30,6 +34,49 @@ class ModalComponent extends Component {
         this.setState({
             isModalOpen: !this.state.isModalOpen
         })
+    }
+
+    handleChange = (event) => {
+        this.setState({
+            [event.target.name]: event.target.value
+        })
+    }
+
+    validate = () => {
+        let usernameError = ""
+        let passwordError = ""
+
+        if(!this.state.username){
+            usernameError= "Please put in a username"
+        }
+        if(!this.state.password){
+            passwordError= "Please put in a password"
+        }
+
+        if(usernameError || passwordError){
+            this.setState({usernameError, passwordError})
+            return false
+        } 
+        return true
+    }
+
+    handleSubmit = (event) => {
+        event.preventDefault()
+        const isValid = this.validate()
+
+        if(isValid){
+            alert(`
+            Welcome to the site, ${this.state.username}
+            `)
+        
+            this.setState({
+                username: "",
+                password: "",
+                usernameError: "",
+                passwordError: ""
+            })
+            this.toggleModal()
+        }
     }
 
     render(){
@@ -41,22 +88,28 @@ class ModalComponent extends Component {
                         <h2>Login</h2> 
                     </ModalHeader>
                     <ModalBody>
-                        <Form>
+                        <Form onSubmit={this.handleSubmit}>
                             <FormGroup>
                                 <Input 
                                     type="text" 
                                     placeholder="Username" 
+                                    value={this.state.username}
+                                    onChange={this.handleChange}
                                     id="username" 
                                     name="username"
                                 />
+                                <div className="text-danger small">{this.state.usernameError}</div>
                             </FormGroup>
                             <FormGroup>
                                 <Input 
                                     type="password" 
                                     placeholder="Password" 
+                                    value={this.state.password}
+                                    onChange={this.handleChange}
                                     id="password" 
                                     name="password"
                                 />
+                                <div className="text-danger small">{this.state.passwordError}</div>
                             </FormGroup>
                             <FormGroup className="text-center mx-auto">
                                 <div>
@@ -70,8 +123,8 @@ class ModalComponent extends Component {
                             </FormGroup>
                             <h6 className="mx-auto text-center my-3">OR</h6>
                             <FormGroup className="d-flex flex-column w-50 mx-auto">
-                                <Button outline className="badge badge-pill px-3 py-2 mb-2" color="primary"><i className="fa fa-google-plus fa-lg mr-2"/>Sign Up with Google</Button>
-                                <Button outline className="badge badge-pill px-3 py-2" color="primary"><i className="fa fa-facebook fa-lg mr-2"/>Sign Up with Facebook</Button>
+                                <Button onClick={this.toggleModal} outline className="badge badge-pill px-3 py-2 mb-2" color="primary"><i className="fa fa-google-plus fa-lg mr-2"/>Sign Up with Google</Button>
+                                <Button onClick={this.toggleModal} outline className="badge badge-pill px-3 py-2" color="primary"><i className="fa fa-facebook fa-lg mr-2"/>Sign Up with Facebook</Button>
                             </FormGroup>
                         </Form>
                     </ModalBody>

@@ -88,12 +88,12 @@ class ContactComponent extends Component {
     render(){
         return (
             <div className="text-light">
-                <div className="container faded-background rounded py-4" style={{maxWidth: "40rem"}}>
+                <div className="container faded-background rounded py-4" style={{maxWidth: "50rem"}}>
                     <div className="row">
-                        <div className="col-sm-12">
+                        <div className="col-sm-8">
                             <h3 className="text-warning">Contact Form</h3>
                             <p>If we don't get back to you in 24 hours... JUST WAIT LONGER</p>
-                            <Form className="form w-75 mx-auto" onSubmit={this.handleSubmit}>
+                            <Form className="form w-75mx-auto" onSubmit={this.handleSubmit}>
                                 <FormGroup>
                                     <Input 
                                         type="text" 
@@ -157,6 +157,11 @@ class ContactComponent extends Component {
                                 </FormGroup>
                                 <Button className="btn" type="submit" color="warning">Submit</Button>
                             </Form>
+                        </div>
+                        <div className="col-sm-4 pt-4 text-center d-flex flex-column">
+                            <p><i className="fa fa-phone fa-lg mr-3 text-warning"/>403-555-3810</p> <br/>
+                            <p><i className="fa fa-at fa-lg mr-3 text-warning" /> cookityourself@us.com</p><br/>
+                            <p><i className="fa fa-envelope fa-lg mr-3 text-warning" />5390 Montrose Ave,<br/> St Louis, MI 30596</p>
                         </div>
                     </div>
                 </div>
