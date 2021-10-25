@@ -5,17 +5,14 @@ const RenderIngredients = ({ingredients}) => {
                 {ingredients.map(ingredient => {
                     return (
                         <div>
-                            <input type="checkbox" className="mx-2"/>{ingredient.quantity} | {ingredient.name}
+                            <input type="checkbox" className="mx-2"/>{ingredient.quantity}<span className="text-warning"> | </span>{ingredient.name}
                         </div>
                     )
                 })}
             </div>
         )
     } else {
-        return (
-            <div>
-            </div>
-        )
+        return <div/>
     }
 }
 
@@ -31,7 +28,7 @@ const RenderSteps = ({steps}) => {
             </div>
         )
     } else {
-        return <div></div>
+        return <div/>
     }
 }
 
@@ -70,7 +67,7 @@ const FoodComponent = (props) => {
                     <h5 className="text-center mt-5 text-warning">Directions</h5>
                     <hr className="bg-warning"/>
                     <ol className="text-left">
-                        <RenderSteps steps={props.foodInfo.steps} />    
+                        <RenderSteps steps={props.foodInfo.steps} />   
                     </ol>    
                 </div>
             </div>
