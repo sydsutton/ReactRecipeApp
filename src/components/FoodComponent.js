@@ -44,14 +44,18 @@ const SaveRecipe = ({name}) => {
     )
 }
 
-const DisplayStars = ({stars}) => {
+const DisplayStars = ({stars, reviews}) => {
     let starsArr = []
+    let emptyStars = []
     for(let i = 1; i <= stars; i++){
         starsArr.push(<i className="fa fa-star text-warning"/>)
     }
+    for(let i= 1; i <= (5 - stars); i++){
+        emptyStars.push(<i className="fa fa-star text-secondary mr-1" />)
+    }
     return (
         <div>
-            <p>{starsArr} / 5 stars</p>
+            <p>{starsArr}{emptyStars} out of <u>{reviews}</u> reviews</p>
         </div>
     )
 }
@@ -61,12 +65,12 @@ const FoodComponent = (props) => {
         <div className="container position-relative faded-background p-4 rounded text-light">
             <div className="row mx-auto text-center my-auto justify-content-between">
                 <div className="mb-4 d-flex flex-row">
-                    <button className="btn btn-sm btn-outline-secondary mr-4" onClick={window.print}>Print Recipe</button>
+                    <button className="btn btn-sm btn-outline-secondary mr-4" style={{height: "33px"}}onClick={window.print}>Print Recipe</button>
                     <SaveRecipe name={props.foodInfo.name}/>
                 </div>
                 <div className="d-flex flex-column text-center mx-auto">
                     <h3 className="text-center mx-auto">{props.foodInfo.name}</h3>
-                    <DisplayStars stars={props.foodInfo.stars} />
+                    <DisplayStars stars={props.foodInfo.stars} reviews={props.foodInfo.reviews}/>
                 </div>
                 <p><span className="small font-bold">Updated:</span> {props.foodInfo.updated}</p>
             </div>

@@ -4,6 +4,7 @@ const DATA = [
         name: "Crock Pot Roast",
         updated: "March 3rd, 2021",
         stars: 3,
+        reviews: 154,
         ingredients: [
             {
                 quantity: "1",
@@ -51,6 +52,7 @@ const DATA = [
         name: "Roasted Asparagus",
         updated: "July 14th, 2021",
         stars: 4,
+        reviews: 754,
         ingredients: [
             {
                 quantity: "1 lb",
@@ -100,6 +102,7 @@ const DATA = [
         name: "Curried Lentils and Rice",
         updated: "August 23rd, 2021",
         stars: 4,
+        reviews: 723,
         ingredients: [
             {
                 quantity: "1 quart",
@@ -148,6 +151,7 @@ const DATA = [
         name: "Big Night Pizza",
         updated: "June 12th, 2021",
         stars: 5,
+        reviews: 3865,
         ingredients: [
             {
                 quantity: "5 teaspoons",
@@ -215,6 +219,7 @@ const DATA = [
         name: "Cranberry and Apple Stuffed Acorn Squash Recipe",
         updated: "June 19th, 2021",
         stars: 2,
+        reviews: 297,
         ingredients: [
             {
                 quantity: "2",
@@ -275,6 +280,7 @@ const DATA = [
         name: "Mic's Yorkshire Puds",
         updated: "October 2nd, 2021",
         stars: 4,
+        reviews: 236,
         ingredients: [
             {
                 quantity: "200g",
@@ -327,6 +333,7 @@ const DATA = [
         name: "Old-Fashioned Oatmeal Cookies",
         updated: "April 28th, 2021",
         stars: 3,
+        reviews: 6843,
         ingredients: [
             {
                 quantity: "1 cup",
@@ -421,6 +428,7 @@ const DATA = [
         name: "Blueberry Oatmeal Squares",
         updated: "July 7th, 2021",
         stars: 2,
+        reviews: 424,
         ingredients: [
             {
                 quantity: "2-1/2 cups",
@@ -501,6 +509,7 @@ const DATA = [
         name: "Curried chicken salad",
         updated: "October 3rd, 2021",
         stars: 4,
+        reviews: 7653,
         ingredients: [
             {
                 quantity: "3",
