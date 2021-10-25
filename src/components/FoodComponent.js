@@ -55,7 +55,7 @@ const DisplayStars = ({stars, reviews}) => {
     }
     return (
         <div>
-            <p>{starsArr}{emptyStars} out of <u>{reviews}</u> reviews</p>
+            <p>{starsArr}{emptyStars} out of <a href="/">{reviews}</a> reviews</p>
         </div>
     )
 }
@@ -64,20 +64,23 @@ const FoodComponent = (props) => {
     return (
         <div className="container position-relative faded-background p-4 rounded text-light">
             <div className="row mx-auto text-center my-auto justify-content-between">
-                <div className="mb-4 d-flex flex-row">
-                    <button className="btn btn-sm btn-outline-secondary mr-4" style={{height: "33px"}}onClick={window.print}>Print Recipe</button>
+                <div className="mb-4 d-flex flex-row align-items-center">
+                    <button className="btn btn-sm btn-outline-secondary mr-4" onClick={window.print}>Print Recipe</button>
                     <SaveRecipe name={props.foodInfo.name}/>
                 </div>
                 <div className="d-flex flex-column text-center mx-auto">
                     <h3 className="text-center mx-auto">{props.foodInfo.name}</h3>
                     <DisplayStars stars={props.foodInfo.stars} reviews={props.foodInfo.reviews}/>
                 </div>
-                <p><span className="small font-bold">Updated:</span> {props.foodInfo.updated}</p>
+                <p className="small"><span className="small font-bold">Updated:</span> {props.foodInfo.updated}</p>
             </div>
             <hr className="mt-n1 mb-4 bg-dark"/>
             <div className="row">
-                <img className="col-md-5 rendered-food mx-auto mb-4" src={props.foodInfo.imageURL} alt={props.foodInfo.name} style={{width: "30rem"}}/>
-                <div className="col-md-5">
+                <div className="col-lg-7 d-flex flex-column align-items-center">
+                    <img className="rendered-food mx-auto mb-4 img-fluid" src={props.foodInfo.imageURL} alt={props.foodInfo.name} style={{width: "30rem"}}/>
+                    <button className="btn btn-sm btn-outline-primary mb-4">Write a review</button>
+                </div>
+                <div className="col-lg-5">
                     <h5 className="text-warning">Ingredients</h5>
                     <hr className="bg-warning"/>
                     <ul className="list-unstyled text-left">

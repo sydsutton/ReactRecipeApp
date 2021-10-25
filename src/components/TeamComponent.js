@@ -55,6 +55,12 @@ const RenderDesc = ({teamInfo}) => {
 function TeamComponent(props){
     return (
         <div className="container">
+            <div className="row mb-4 faded-background">
+                <div className="col py-2 rounded">
+                    <h2 className="text-warning">Meet Our Team</h2>
+                    <h6 className="text-light">These world-renowned chefs make the recipes that you love<br/> easy enough for even you to make (no offense)</h6>
+                </div>
+            </div>
             <div className="row">
                 <div className="col-sm-6 text-center w-50 text-light d-flex flex-wrap mx-auto">
                     <RenderTeam teamInfo={props.teamInfo} />
