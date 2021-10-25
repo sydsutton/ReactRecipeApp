@@ -44,6 +44,18 @@ const SaveRecipe = ({name}) => {
     )
 }
 
+const DisplayStars = ({stars}) => {
+    let starsArr = []
+    for(let i = 1; i <= stars; i++){
+        starsArr.push(<i className="fa fa-star text-warning"/>)
+    }
+    return (
+        <div>
+            <p>{starsArr} / 5 stars</p>
+        </div>
+    )
+}
+
 const FoodComponent = (props) => {
     return (
         <div className="container position-relative faded-background p-4 rounded text-light">
@@ -52,7 +64,10 @@ const FoodComponent = (props) => {
                     <button className="btn btn-sm btn-outline-secondary mr-4" onClick={window.print}>Print Recipe</button>
                     <SaveRecipe name={props.foodInfo.name}/>
                 </div>
-                <h3 className="text-center mx-auto">{props.foodInfo.name}</h3>
+                <div className="d-flex flex-column text-center mx-auto">
+                    <h3 className="text-center mx-auto">{props.foodInfo.name}</h3>
+                    <DisplayStars stars={props.foodInfo.stars} />
+                </div>
                 <p><span className="small font-bold">Updated:</span> {props.foodInfo.updated}</p>
             </div>
             <hr className="mt-n1 mb-4 bg-dark"/>
