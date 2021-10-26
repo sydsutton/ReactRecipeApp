@@ -1,3 +1,133 @@
+import React, {Component} from "react"
+import {
+    Modal, 
+    ModalHeader,
+    ModalBody,
+    Form,
+    FormGroup,
+    Input,
+    Label,
+    Button
+} from "reactstrap"
+
+class ReviewModal extends Component {
+    constructor(props){
+        super(props)
+        this.state = {
+            isModaOpen: false,
+            stars: "",
+            rating: "",
+            name: "",
+            email: ""
+        }
+    }
+
+    toggleModal = () => {
+        this.setState({
+            isModalOpen: !this.state.isModalOpen
+        })
+    }
+
+    handleChange = (event) => {
+        this.setState({
+            [event.target.name]: event.target.value
+        })
+    }
+
+    handleSubmit = () => {
+        alert(`
+Thank you for your review!
+You gave this recipe ${this.state.stars} because "${this.state.rating}".
+Your name is ${this.state.name}, and your email is ${this.state.email}.
+        `)
+
+        this.setState({
+            stars: "",
+            rating: "",
+            name: "",
+            email: ""
+        })
+    }
+    render(){
+        return (
+            <div>
+                <p><button onClick={this.toggleModal} className="btn badge badge-pill badge-primary border-transparent p-2 my-2" style={{border: "none"}}>Write a review</button></p>
+                <Modal isOpen={this.state.isModalOpen} toggle={this.toggleModal}>
+                    <ModalHeader className="text-dark" toggle={this.toggleModal}>
+                        <h3>Write a review about this recipe</h3>
+                    </ModalHeader>
+                    <ModalBody>
+                        <Form className="small" onSubmit={this.handleSubmit}>
+                            <FormGroup className="d-flex flex-row">
+                                <Label for="stars">Number of stars</Label>
+                                <Input 
+                                    type="select" 
+                                    name="stars" 
+                                    id="stars"
+                                    value={this.state.stars}
+                                    onChange={this.handleChange}
+                                >
+                                    <option>1 star</option>
+                                    <option>2 stars</option>
+                                    <option>3 stars</option>
+                                    <option>4 stars</option>
+                                    <option>5 stars</option>
+                                </Input>
+                            </FormGroup>
+                            <FormGroup className="d-flex flex-row">
+                                <Label for="rating">Why did you give it that rating?</Label>
+                                <Input 
+                                    type="textarea" 
+                                    id="rating" 
+                                    name="rating"
+                                    onChange={this.handleChange}
+                                    value={this.state.rating}
+                                />
+                            </FormGroup>
+                            <FormGroup className="d-flex flex-row">
+                                <Label for="name">Your name (optional)</Label>
+                                <Input 
+                                    type="text" 
+                                    id="name" 
+                                    name="name" 
+                                    onChange={this.handleChange}
+                                    value={this.state.name}
+                                />
+                            </FormGroup>
+                            <FormGroup className="d-flex flex-row">
+                                <Label for="email">Your email address (optional)</Label>
+                                <Input 
+                                    type="email" 
+                                    id="email" 
+                                    name="email"
+                                    onChange={this.handleChange}
+                                    value={this.state.email}
+                                />
+                            </FormGroup>
+                            <Label for="radio">Can we reach out?</Label>
+                            <FormGroup id="radio" check>
+                                <Label check>
+                                    <Input type="radio" name="radio1" />{' '}
+                                    Yes, please do!
+                                </Label>
+                            </FormGroup>
+                            <FormGroup check>
+                                <Label check>
+                                    <Input type="radio" name="radio1" />{' '}
+                                    No thanks
+                                </Label>
+                            </FormGroup>
+                            <div className="mx-auto text-center">
+                                <Button type="submit" className="btn btn-warning mt-3">Submit Review</Button>
+                            </div>
+                        </Form>
+                    </ModalBody>
+                </Modal>
+            </div>
+        )
+    }
+}
+
 const RenderIngredients = ({ingredients}) => {
     if (ingredients){
         return (
@@ -55,7 +185,8 @@ const DisplayStars = ({stars, reviews}) => {
     }
     return (
         <div>
-            <p>{starsArr}{emptyStars} out of <a href="/">{reviews}</a> reviews</p>
+            <p className="mb-0">{starsArr}{emptyStars} out of <a href="/">{reviews} reviews </a></p>
+            <ReviewModal />
         </div>
     )
 }
@@ -64,21 +195,22 @@ const FoodComponent = (props) => {
     return (
         <div className="container position-relative faded-background p-4 rounded text-light">
             <div className="row mx-auto text-center my-auto justify-content-between">
-                <div className="mb-4 d-flex flex-row align-items-center">
-                    <button className="btn btn-sm btn-outline-secondary mr-4" onClick={window.print}>Print Recipe</button>
-                    <SaveRecipe name={props.foodInfo.name}/>
-                </div>
-                <div className="d-flex flex-column text-center mx-auto">
+                <div className="col-md-7 d-flex flex-column text-center mx-auto">
                     <h3 className="text-center mx-auto">{props.foodInfo.name}</h3>
                     <DisplayStars stars={props.foodInfo.stars} reviews={props.foodInfo.reviews}/>
                 </div>
-                <p className="small"><span className="small font-bold">Updated:</span> {props.foodInfo.updated}</p>
+                <div className="col-md-5">
+                    <p className="small"><span className="small font-bold">Updated:</span> {props.foodInfo.updated}</p>
+                    <div className="mb-4 d-flex flex-row align-items-center justify-content-center">
+                        <button className="btn btn-sm btn-outline-secondary mr-4" onClick={window.print}>Print Recipe</button>
+                        <SaveRecipe name={props.foodInfo.name}/>
+                    </div>
+                </div>
             </div>
             <hr className="mt-n1 mb-4 bg-dark"/>
             <div className="row">
                 <div className="col-lg-7 d-flex flex-column align-items-center">
                     <img className="rendered-food mx-auto mb-4 img-fluid" src={props.foodInfo.imageURL} alt={props.foodInfo.name} style={{width: "30rem"}}/>
-                    <button className="btn btn-sm btn-outline-primary mb-4">Write a review</button>
                 </div>
                 <div className="col-lg-5">
                     <h5 className="text-warning">Ingredients</h5>
