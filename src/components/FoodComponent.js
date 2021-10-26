@@ -18,7 +18,9 @@ class ReviewModal extends Component {
             stars: "",
             rating: "",
             name: "",
-            email: ""
+            email: "",
+            starsError: "",
+            ratingError: ""
         }
     }
 
@@ -27,6 +29,49 @@ class ReviewModal extends Component {
             isModalOpen: !this.state.isModalOpen
         })
     }
+    
+    validate = () => {
+        let starsError = ""
+        let ratingError = ""
+
+        if(!this.state.stars){
+            starsError = "Sorry, but you need to give it at least ONE star"
+        }
+
+        if(!this.state.rating){
+            ratingError = "We'd love to hear your reasoning!"
+        }
+
+        if(starsError || ratingError){
+            this.setState({starsError, ratingError})
+            return false
+        } 
+
+        return true
+    }
+
+    handleSubmit = (event) => {
+        event.preventDefault()
+        const isValid = this.validate()
+
+        if(isValid){
+            alert(`
+            Thank you for your review!
+            You gave this recipe ${this.state.stars} because "${this.state.rating}".
+            Your name is ${this.state.name}, and your email is ${this.state.email}.
+                    `)
+            
+            this.setState({
+                stars: "",
+                rating: "",
+                name: "",
+                email: "",
+                starsEror: "",
+                ratingError: ""
+            })
+        }
+
+    }
 
     handleChange = (event) => {
         this.setState({
@@ -34,30 +79,17 @@ class ReviewModal extends Component {
         })
     }
 
-    handleSubmit = () => {
-        alert(`
-Thank you for your review!
-You gave this recipe ${this.state.stars} because "${this.state.rating}".
-Your name is ${this.state.name}, and your email is ${this.state.email}.
-        `)
-
-        this.setState({
-            stars: "",
-            rating: "",
-            name: "",
-            email: ""
-        })
-    }
     render(){
         return (
             <div>
                 <p><button onClick={this.toggleModal} className="btn badge badge-pill badge-primary border-transparent p-2 my-2" style={{border: "none"}}>Write a review</button></p>
-                <Modal isOpen={this.state.isModalOpen} toggle={this.toggleModal}>
+                <Modal isOpen={this.state.isModalOpen} toggle={this.toggleModal} className="w-75 mx-auto">
                     <ModalHeader className="text-dark" toggle={this.toggleModal}>
                         <h3>Write a review about this recipe</h3>
                     </ModalHeader>
                     <ModalBody>
                         <Form className="small" onSubmit={this.handleSubmit}>
+                            <div className="text-danger text-center">{this.state.starsError}</div>
                             <FormGroup className="d-flex flex-row">
                                 <Label for="stars">Number of stars</Label>
                                 <Input 
@@ -67,6 +99,7 @@ Your name is ${this.state.name}, and your email is ${this.state.email}.
                                     value={this.state.stars}
                                     onChange={this.handleChange}
                                 >
+                                    <option/>
                                     <option>1 star</option>
                                     <option>2 stars</option>
                                     <option>3 stars</option>
@@ -74,8 +107,9 @@ Your name is ${this.state.name}, and your email is ${this.state.email}.
                                     <option>5 stars</option>
                                 </Input>
                             </FormGroup>
+                            <div className="text-danger text-center">{this.state.ratingError}</div>
                             <FormGroup className="d-flex flex-row">
-                                <Label for="rating">Why did you give it that rating?</Label>
+                                <Label for="rating">Why did you give it {this.state.stars}?</Label>
                                 <Input 
                                     type="textarea" 
                                     id="rating" 
@@ -83,6 +117,9 @@ Your name is ${this.state.name}, and your email is ${this.state.email}.
                                     onChange={this.handleChange}
                                     value={this.state.rating}
                                 />
+                            </FormGroup>
+                            <FormGroup className="text-center">
+                                <Label>------ If you fill the information out below, we may contact you ------</Label>
                             </FormGroup>
                             <FormGroup className="d-flex flex-row">
                                 <Label for="name">Your name (optional)</Label>
@@ -103,19 +140,6 @@ Your name is ${this.state.name}, and your email is ${this.state.email}.
                                     onChange={this.handleChange}
                                     value={this.state.email}
                                 />
-                            </FormGroup>
-                            <Label for="radio">Can we reach out?</Label>
-                            <FormGroup id="radio" check>
-                                <Label check>
-                                    <Input type="radio" name="radio1" />{' '}
-                                    Yes, please do!
-                                </Label>
-                            </FormGroup>
-                            <FormGroup check>
-                                <Label check>
-                                    <Input type="radio" name="radio1" />{' '}
-                                    No thanks
-                                </Label>
                             </FormGroup>
                             <div className="mx-auto text-center">
                                 <Button type="submit" className="btn btn-warning mt-3">Submit Review</Button>

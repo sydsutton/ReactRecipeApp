@@ -40,10 +40,10 @@ class MainComponent extends Component {
         const HomePage = () => {
             return (
                 <div>
-                    <Jumbotron className="jumbotron mt-n5 position-relative"/>
-                    <div className="position-absolute text-dark w-100 mt-5 bg-warning" style={{top: "20%"}}>
-                        <h1 className="pt-1 bg-light mt-2 position-relative pb-2">Cook it Yourself!</h1>
-                        <p className="small bg-light py-1 mt-n1 mb-2">Based on recipes that we actually use in our own world-class restaurants, <br/>our dishes that we share are both easy to make and delicious. Give your family a taste of what it's like to go out to a five-star restaurant without having to leave your own home!<br/>Choose from any of the ever-changing recipes below. Leave suggestions, reviews,<br/>and share your stories on our social media!</p>
+                    <Jumbotron className="jumbotron mt-n5"/>
+                    <div className="text-dark w-100 mt-n5 bg-warning py-1 mb-4">
+                        <h1 className="pt-1 bg-light mt-2 pb-2">Cook it Yourself!</h1>
+                        <p className="small bg-light py-1 mt-n1 mb-2">Based on recipes that we actually use in our own world-class restaurants, <br/>our dishes that we share are both easy to make and delicious.<br/>Give your family a taste of what it's like to go out to a five-star restaurant<br/> without having to leave your own home! <br/>Leave suggestions, reviews, and share your stories on our social media!</p>
                     </div>
                     <div className="container">
                         <div className="row">
@@ -62,7 +62,7 @@ class MainComponent extends Component {
 
         return (
             <div>
-                <Navbar />
+                <Navbar className="position-relative"/>
                 <Switch>
                     <Route exact path="/menu" component={HomePage} />
                     <Route path="/recipe/:foodId" component={FoodItem} />

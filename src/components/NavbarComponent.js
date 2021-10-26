@@ -85,7 +85,10 @@ class ModalComponent extends Component {
                 <Button onClick={this.toggleModal} className="badge badge-pill border border-dark text-dark px-4 py-2 ml-4" outline color="warning">Login</Button>
                 <Modal isOpen={this.state.isModalOpen} toggle={this.toggleModal} className="mx-auto w-75">
                     <ModalHeader toggle={this.toggleModal}>
-                        <h2>Login</h2> 
+                        <div className="d-flex flex-row align-items-center">
+                            <img src={logo} alt="Logo" width="30" className="mr-3"/>
+                            <h2>Login</h2> 
+                        </div>
                     </ModalHeader>
                     <ModalBody>
                         <Form onSubmit={this.handleSubmit}>
