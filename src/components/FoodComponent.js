@@ -52,6 +52,7 @@ class ReviewModal extends Component {
 
     handleSubmit = (event) => {
         event.preventDefault()
+
         const isValid = this.validate()
 
         if(isValid){
@@ -70,7 +71,6 @@ class ReviewModal extends Component {
                 ratingError: ""
             })
         }
-
     }
 
     handleChange = (event) => {
@@ -89,7 +89,7 @@ class ReviewModal extends Component {
                     </ModalHeader>
                     <ModalBody>
                         <Form className="small" onSubmit={this.handleSubmit}>
-                            <div className="text-danger text-center">{this.state.starsError}</div>
+                        <div className="text-danger text-center">{this.state.starsError}</div>
                             <FormGroup className="d-flex flex-row">
                                 <Label for="stars">Number of stars</Label>
                                 <Input 
