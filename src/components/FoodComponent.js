@@ -7,7 +7,9 @@ import {
     FormGroup,
     Input,
     Label,
-    Button
+    Button,
+    Card,
+    CardHeader
 } from "reactstrap"
 
 class ReviewModal extends Component {
@@ -36,10 +38,16 @@ class ReviewModal extends Component {
 
         if(!this.state.stars){
             starsError = "Sorry, but you need to give it at least ONE star"
+            document.getElementById('stars').style.borderColor = "red"
+        } else {
+            document.getElementById('stars').style.borderColor = null
         }
 
         if(!this.state.rating){
             ratingError = "We'd love to hear your reasoning!"
+            document.getElementById('rating').style.borderColor = "red"
+        } else {
+            document.getElementById('rating').style.borderColor = null
         }
 
         if(starsError || ratingError){
@@ -70,6 +78,7 @@ class ReviewModal extends Component {
                 starsEror: "",
                 ratingError: ""
             })
+            this.toggleModal()
         }
     }
 
@@ -215,6 +224,36 @@ const DisplayStars = ({stars, reviews}) => {
     )
 }
 
+const RenderReviews = ({reviews}) => {
+    return (
+        <div>
+            {reviews.map(review => {
+                    let starsArr = []
+                    let emptyStars = []
+                    for(let i = 1; i <= review.stars; i++){
+                        starsArr.push(<i className="fa fa-star text-warning"/>)
+                    }
+                    for(let i= 1; i <= (5 - review.stars); i++){
+                        emptyStars.push(<i className="fa fa-star text-secondary mr-1" />)
+                    }
+                return (
+                    <li>
+                        <Card className="card-light text-dark my-4">
+                            <CardHeader>
+                                <p>"{review.review}"</p>
+                                <div>
+                                    <h5>- {review.first_name}</h5>
+                                    <p>{starsArr}{emptyStars}</p>
+                                </div>
+                            </CardHeader>
+                        </Card>
+                    </li>
+                )
+            })}
+        </div>
+    )
+}
+
 const FoodComponent = (props) => {
     return (
         <div className="container position-relative faded-background p-4 rounded text-light">
@@ -247,6 +286,13 @@ const FoodComponent = (props) => {
                     <ol className="text-left">
                         <RenderSteps steps={props.foodInfo.steps} />   
                     </ol>    
+                </div>
+                <div className="col">
+                <h4 className="mt-5 text-warning">Reviews</h4>
+                    <hr className="bg-warning mb-5" />
+                    <ul className="list-unstyled">
+                        <RenderReviews reviews={props.reviews}/>
+                    </ul>
                 </div>
             </div>
         </div>

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import DATA from "../DATA"
 import CONTACTS from "../CONTACTS"
+import REVIEWS from "../REVIEWS"
 import Navbar from "./NavbarComponent"
 import Footer from "./FooterComponent"
 import Team from "./TeamComponent"
@@ -20,7 +21,8 @@ class MainComponent extends Component {
         super()
         this.state = {
             data: DATA,
-            contacts: CONTACTS
+            contacts: CONTACTS,
+            reviews: REVIEWS
         }
     }
 
@@ -28,7 +30,7 @@ class MainComponent extends Component {
         const dataMapped = this.state.data.map(food => {
             return (
                     <Link to={`/recipe/${food.id}`} className="mx-auto scale">
-                        <Card className=" m-2 faded-background rounded-circle shadow">
+                        <Card className="m-2 faded-background rounded-circle shadow">
                             <CardImg className="rounded-circle food-image mx-auto" src={food.imageURL} alt={food.name}/>
                             <CardImgOverlay className="align-items-center">
                                 <CardTitle className="bg-light w-100 text-dark rounded shadow p-1 shadow-sm border border-dark"><h5>{food.name}</h5></CardTitle>
@@ -56,7 +58,7 @@ class MainComponent extends Component {
 
         const FoodItem = ({match}) => {
             return (
-                <FoodComponent foodInfo={this.state.data.filter(food => food.id === +match.params.foodId)[0]} />
+                <FoodComponent reviews={this.state.reviews} foodInfo={this.state.data.filter(food => food.id === +match.params.foodId)[0]} />
             )
         }
 

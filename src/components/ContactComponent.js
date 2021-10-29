@@ -31,18 +31,30 @@ class ContactComponent extends Component {
 
         if (!this.state.firstName.length){
             firstNameError= "Please put in your first name"
+            document.getElementById('firstName').style.borderColor = "red"
+        } else {
+            document.getElementById('firstName').style.borderColor = null
         }
         
         if(!this.state.lastName.length){
             lastNameError= "Please put in your last name"
-        } 
+            document.getElementById('lastName').style.borderColor = "red"
+        } else {
+            document.getElementById('lastName').style.borderColor = null
+        }
         
         if (!this.state.email){
             emailError= "Please put in a valid email"
+            document.getElementById('email').style.borderColor = "red"
+        } else {
+            document.getElementById('email').style.borderColor = null
         }
 
         if(!this.state.suggestion){
             suggestionError = "We're open to suggestions"
+            document.getElementById('suggestion').style.borderColor = "red"
+        } else {
+            document.getElementById('suggestion').style.borderColor = null
         }
 
         if(firstNameError || lastNameError || emailError || suggestionError){

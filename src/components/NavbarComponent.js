@@ -48,9 +48,15 @@ class ModalComponent extends Component {
 
         if(!this.state.username){
             usernameError= "Please put in a username"
+            document.getElementById('username').style.borderColor = "red"
+        } else {
+            document.getElementById('username').style.borderColor = null
         }
         if(!this.state.password){
             passwordError= "Please put in a password"
+            document.getElementById('password').style.borderColor = "red"
+        } else {
+            document.getElementById('password').style.borderColor = null
         }
 
         if(usernameError || passwordError){
