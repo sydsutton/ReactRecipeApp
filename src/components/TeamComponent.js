@@ -53,6 +53,11 @@ const RenderDesc = ({teamInfo}) => {
 }
 
 function TeamComponent(props){
+    
+    React.useEffect(() => {
+        window.scrollTo(0, 0);
+      }, []);
+
     return (
         <div className="container">
             <div className="row mb-4 gradient-background">

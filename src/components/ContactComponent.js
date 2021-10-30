@@ -22,7 +22,11 @@ class ContactComponent extends Component {
             suggestionError: ""
         }
     }
-    
+
+    componentDidMount() {
+        window.scrollTo(0, 0);
+    }
+
     validate = () => {
         let firstNameError = ""
         let lastNameError = ""

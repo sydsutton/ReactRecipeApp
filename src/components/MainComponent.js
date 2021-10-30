@@ -26,6 +26,10 @@ class MainComponent extends Component {
         }
     }
 
+    componentDidMount() {
+        window.scrollTo(0, 0);
+    }
+
     render(){
         const dataMapped = this.state.data.map(food => {
             return (
@@ -40,6 +44,9 @@ class MainComponent extends Component {
             )
         })
         const HomePage = () => {
+            React.useEffect(() => {
+                window.scrollTo(0, 0);
+              }, []);
             return (
                 <div>
                     <Jumbotron className="jumbotron mt-n5"/>
