@@ -276,7 +276,6 @@ const FoodComponent = (props) => {
                     </div>
                 </div>
             </div>
-            <hr className="mt-n1 mb-4 bg-dark"/>
             <div className="row">
                 <div className="col-lg-7 d-flex flex-column align-items-center">
                     <img className="rendered-food mx-auto mb-4 img-fluid" src={props.foodInfo.imageURL} alt={props.foodInfo.name} style={{width: "30rem"}}/>
