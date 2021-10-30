@@ -82,13 +82,14 @@ class ModalComponent extends Component {
                 passwordError: ""
             })
             this.toggleModal()
+            document.getElementById('loginBtn').innerText = `${this.state.username}`
         }
     }
 
     render(){
         return (
             <div>
-                <Button onClick={this.toggleModal} className="badge badge-pill border border-dark text-dark px-4 py-2 ml-4" outline color="warning">Login</Button>
+                <Button onClick={this.toggleModal} id="loginBtn" className="badge badge-pill border border-dark text-dark px-4 py-2 ml-4" outline color="warning">Login</Button>
                 <Modal isOpen={this.state.isModalOpen} toggle={this.toggleModal} className="mx-auto w-75">
                     <ModalHeader toggle={this.toggleModal}>
                         <div className="d-flex flex-row align-items-center">

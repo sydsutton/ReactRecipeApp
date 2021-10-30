@@ -45,7 +45,7 @@ class MainComponent extends Component {
                     <Jumbotron className="jumbotron mt-n5"/>
                     <div className="text-dark w-100 mt-n5 bg-warning py-1 mb-4">
                         <h1 className="pt-1 bg-light mt-2 pb-2">Cook it Yourself!</h1>
-                        <p className="small bg-light py-1 mt-n1 mb-2">Based on recipes that we actually use in our own world-class restaurants, <br/>our dishes that we share are both easy to make and delicious.<br/>Give your family a taste of what it's like to go out to a five-star restaurant<br/> without having to leave your own home!</p>
+                        <p className="small bg-light py-1 mt-n1 mb-2 font-weight-bold">Based on recipes that we actually use in our own world-class restaurants, <br/>our dishes that we share are both easy to make and delicious.<br/>Give your family a taste of what it's like to go out to a five-star restaurant<br/> without having to leave your own home!</p>
                     </div>
                     <div className="container">
                         <div className="row">

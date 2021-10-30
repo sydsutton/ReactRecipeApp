@@ -239,11 +239,17 @@ const RenderReviews = ({reviews}) => {
                 return (
                     <li>
                         <Card className="card-light text-dark my-4">
-                            <CardHeader>
+                            <CardHeader className="text-left">
                                 <p>"{review.review}"</p>
                                 <div>
-                                    <h5>- {review.first_name}</h5>
-                                    <p>{starsArr}{emptyStars}</p>
+                                    <div className="d-flex flex-row">
+                                        <img className="rounded-circle cover profile-image" src={review.image} alt={review.first_name} />
+                                        <h5 className="mt-4 ml-2">- {review.first_name}</h5>
+                                    </div>
+                                    <div className="d-flex flex-row">
+                                        <p>{starsArr}{emptyStars}</p>
+                                        <p className="small ml-4">{review.date}</p>
+                                    </div>
                                 </div>
                             </CardHeader>
                         </Card>
@@ -287,7 +293,7 @@ const FoodComponent = (props) => {
                         <RenderSteps steps={props.foodInfo.steps} />   
                     </ol>    
                 </div>
-                <div className="col">
+                <div className="col-md-6 mx-auto">
                 <h4 className="mt-5 text-warning">Reviews</h4>
                     <hr className="bg-warning mb-5" />
                     <ul className="list-unstyled">
