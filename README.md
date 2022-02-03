@@ -1,11 +1,11 @@
-# _{Cook It Yourself Recipe Project}_
+# _Cook It Yourself Recipe Project_
 
 ![image](https://user-images.githubusercontent.com/83406605/144930481-2254cea1-4275-4525-b2f0-a3d8345688fe.png)
 ![image](https://user-images.githubusercontent.com/83406605/144930554-07f98200-5d67-4a49-a621-4358419c5f9e.png)
 
 #### By _**{Andrew Sutton}**_
 
-#### _{This is my second portfolio project aimed at giving people who do not feel comfortable going out to eat post-covid a chance to eat world-class meals from home. }_
+#### _This is my second portfolio project aimed at giving people who do not feel comfortable going out to eat post-covid a chance to eat world-class meals from home._
 
 ## Technologies Used
 
@@ -17,7 +17,7 @@
 
 ## Description
 
-_{This is a responsive SPA that displays information about different food items. If you click on a speific food item one the home page, you will be redirected to a list of ingredients, the recipe, and different reviews for that particular food item. You can save the recipe, making an alert pop up that will display the name of the recipe that you saved. You can also print the page from the same section as you saved it from. If you go to the Contact page in the navbar, you can fill out and submit the form, which will trigger an alert with all of the information that you filled in. Both the login form and the contact form have error handling using Javascript. }_
+_This is a responsive SPA that displays information about different food items. If you click on a speific food item one the home page, you will be redirected to a list of ingredients, the recipe, and different reviews for that particular food item. You can save the recipe, making an alert pop up that will display the name of the recipe that you saved. You can also print the page from the same section as you saved it from. If you go to the Contact page in the navbar, you can fill out and submit the form, which will trigger an alert with all of the information that you filled in. Both the login form and the contact form have error handling using Javascript._
 
 ## Setup/Installation Requirements
 
@@ -31,6 +31,6 @@ _{This is a responsive SPA that displays information about different food items.
 
 ## License
 
-_{If you run into any issues on deployment, please contact me at andrewsydsutton@gmail.com}_
+_If you run into any issues on deployment, please contact me at andrewsydsutton@gmail.com_
 
 Copyright (c) _2021_ _Andrew Sutton_
